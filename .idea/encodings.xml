@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-api-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-api-impl/member-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-api-impl/weChat-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-api/member" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-api/weChat" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-basic" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-basic/eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-basic/zuul" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop-portal" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

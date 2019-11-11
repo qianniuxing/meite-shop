@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>shop-basic</artifactId>
+        <groupId>com.meite</groupId>
+        <version>1.0-RELEASE</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>zuul</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+        </dependency>
+        <!-- swagger-spring-boot -->
+        <dependency>
+            <groupId>com.spring4all</groupId>
+            <artifactId>swagger-spring-boot-starter</artifactId>
+            <version>1.7.0.RELEASE</version>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>com.hello.springboot-first</groupId>-->
+            <!--<artifactId>springboot-first</artifactId>-->
+            <!--<version>0.0.1-RELEASE</version>-->
+        <!--</dependency>-->
+
+
+
+    </dependencies>
+
+    <!--<repositories>-->
+        <!--<repository>-->
+            <!--<id>qnx</id>-->
+            <!--<url>http://192.168.29.132:8081/repository/qnx-release/</url>-->
+        <!--</repository>-->
+    <!--</repositories>-->
+
+</project>
