@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hello.mapper.member.IUserMapper">
+    <insert id="insertUserToken">
+        insert into meite_user_token( token, login_type, device_infor, is_availability, user_id ) values( #{token}, #{login_type}, #{device_infor}, 0, #{USER_ID} )
+    </insert>
+
+    <update id="updateUserToken">
+        update meite_user_token set is_availability = 1 WHERE token = #{token}
+    </update>
+
+    <select id="selectUser" resultType="com.hello.entity.PageData">
+        select * from meite_user where MOBILE = #{username} and PASSWORD = ${password}
+    </select>
+
+    <select id="selectUserToken" resultType="com.hello.entity.PageData">
+        select * from meite_user_token where user_id = #{USER_ID} and is_availability = #{is_availability}
+    </select>
+
+</mapper>
