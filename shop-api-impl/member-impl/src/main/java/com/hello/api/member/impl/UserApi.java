@@ -54,10 +54,27 @@ public class UserApi implements IUserApi {
         }
         String token = generateToken.createToken(Constants.MEMBER_TOKEN_KEYPREFIX + "." +pd.getString("loginType")+ ".", user.getString("USER_ID"));
         result.put("code", 200);
-        result.put("code", 200);
         result.put("token", token);
-        user.put("token", token);
         Integer affectedRows = this.userMapper.insertUserToken(user);
+        return result;
+    }
+
+    @Override
+    public PageData ssoLogin(PageData pd) {
+        PageData result = new PageData();
+        if (StringUtils.isBlank(pd.getString("username")) || StringUtils.isBlank(pd.getString("password"))) {
+            result.put("code", 201);
+            result.put("msg", "参数缺失！");
+            return result;
+        }
+        PageData user = userMapper.selectUser(pd);
+        if (Objects.isNull(user)) {
+            result.put("code", 202);
+            result.put("msg", "用户或密码错误！");
+            return result;
+        }
+        result.put("code", 200);
+        result.put("data", user);
         return result;
     }
 

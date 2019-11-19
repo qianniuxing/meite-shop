@@ -15,6 +15,7 @@
     <modules>
         <module>eureka</module>
         <module>zuul</module>
+        <module>xxl-sso-server</module>
     </modules>
 
 
