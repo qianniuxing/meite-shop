@@ -59,8 +59,9 @@ public class UserApi implements IUserApi {
         return result;
     }
 
+
     @Override
-    public PageData ssoLogin(PageData pd) {
+    public PageData ssoLogin(@RequestBody PageData pd) {
         PageData result = new PageData();
         if (StringUtils.isBlank(pd.getString("username")) || StringUtils.isBlank(pd.getString("password"))) {
             result.put("code", 201);

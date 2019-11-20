@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -102,10 +103,10 @@ public class WebController {
             redirectAttributes.addAttribute(Conf.REDIRECT_URL, request.getParameter(Conf.REDIRECT_URL));
             return "redirect:/login";
         }
-        PageData data = (PageData) loginResult.get("data");
+        Map data = (Map) loginResult.get("data");
         XxlSsoUser xxlUser = new XxlSsoUser();
-        xxlUser.setUserid(String.valueOf(data.get("userId")));
-        xxlUser.setUsername(data.getString("username"));
+        xxlUser.setUserid(String.valueOf(data.get("USER_ID")));
+        xxlUser.setUsername(String.valueOf(data.get("MOBILE")));
         xxlUser.setVersion(UUID.randomUUID().toString().replaceAll("-", ""));
         xxlUser.setExpireMinite(SsoLoginStore.getRedisExpireMinite());
         xxlUser.setExpireFreshTime(System.currentTimeMillis());

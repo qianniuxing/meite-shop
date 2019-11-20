@@ -16,7 +16,7 @@ public interface IUserApi {
     @ApiOperation(value = "用户认证")
     PageData login(PageData pageData);
 
-    @PostMapping("/ssologin")
+    @PostMapping("/ssoLogin")
     @ApiOperation(value = "sso用户认证")
     PageData ssoLogin(PageData pageData);
 
