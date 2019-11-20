@@ -11,7 +11,7 @@
     </update>
 
     <select id="selectUser" resultType="com.hello.entity.PageData">
-        select * from meite_user where MOBILE = #{username} and PASSWORD = ${password}
+        select * from meite_user where MOBILE = #{username} and PASSWORD = #{password}
     </select>
 
     <select id="selectUserToken" resultType="com.hello.entity.PageData">
