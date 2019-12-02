@@ -1,4 +1,4 @@
-package com.hello.utils;
+package com.hello.utils.base;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;

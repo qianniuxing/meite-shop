@@ -9,26 +9,26 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>member-impl</artifactId>
+    <artifactId>pay-impl</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.meite</groupId>
+            <artifactId>pay</artifactId>
+            <version>1.0-RELEASE</version>
+        </dependency>
+
         <dependency>
             <groupId>com.meite</groupId>
             <artifactId>common</artifactId>
             <version>1.0-RELEASE</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.meite</groupId>
-            <artifactId>member</artifactId>
-            <version>1.0-RELEASE</version>
-        </dependency>
-
-        <dependency>
+        <!--<dependency>
             <groupId>com.meite</groupId>
             <artifactId>elk-kafka</artifactId>
             <version>1.0-RELEASE</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>mysql</groupId>
@@ -65,16 +65,7 @@
             <artifactId>querydsl-jpa</artifactId>
         </dependency>
 
-
-
-
-<!--        <dependency>-->
-<!--            <groupId>ma.glasnost.orika</groupId>-->
-<!--            <artifactId>orika-core</artifactId>-->
-<!--            <version>1.5.2</version>-->
-<!--        </dependency>-->
-
-
     </dependencies>
+
 
 </project>

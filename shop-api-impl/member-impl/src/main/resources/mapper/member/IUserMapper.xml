@@ -18,4 +18,8 @@
         select * from meite_user_token where user_id = #{USER_ID} and is_availability = #{is_availability}
     </select>
 
+    <select id="selectProductList" resultType="com.hello.entity.PageData">
+        select * from meite_product where 1 = 1
+    </select>
+
 </mapper>

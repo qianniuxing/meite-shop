@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hello.mapper.pay.IPayTransactionMapper">
+
+    <insert id="insertPayTransaction" parameterType="java.util.Map" useGeneratedKeys="true" keyProperty="ID">
+        INSERT INTO `payment_transaction` ( `PAY_AMOUNT`, `PAYMENT_STATUS`, `USER_ID`, `ORDER_ID`, `REVISION`, `CREATED_BY`, `CREATED_TIME`, `UPDATED_BY`, `UPDATED_TIME`, PAYMENT_ID )
+        VALUES
+            ( #{PAY_AMOUNT}, #{PAYMENT_STATUS}, #{USER_ID}, #{ORDER_ID}, NULL, NULL, NOW(), NULL, NULL, #{PAYMENT_ID} )
+    </insert>
+
+    <select id="payTransactionById" resultType="java.util.Map">
+        select * from payment_transaction where ID = #{id}
+    </select>
+
+
+</mapper>

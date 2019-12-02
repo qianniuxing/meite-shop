@@ -1,4 +1,4 @@
-package com.hello.utils;
+package com.hello.utils.base;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;

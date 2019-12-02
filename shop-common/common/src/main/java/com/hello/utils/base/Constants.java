@@ -1,4 +1,4 @@
-package com.hello.utils;
+package com.hello.utils.base;
 
 public interface Constants {
 	// 响应请求成功

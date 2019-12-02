@@ -1,4 +1,4 @@
-package com.hello.utils;
+package com.hello.utils.base;
 
 /**
  * @ClassName TypeCastHelper

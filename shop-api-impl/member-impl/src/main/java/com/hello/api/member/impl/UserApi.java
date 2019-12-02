@@ -3,15 +3,13 @@ package com.hello.api.member.impl;
 import com.hello.api.member.IUserApi;
 import com.hello.entity.PageData;
 import com.hello.mapper.member.IUserMapper;
-import com.hello.utils.Constants;
-import com.hello.utils.GenerateToken;
+import com.hello.utils.base.Constants;
+import com.hello.utils.base.GenerateToken;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Objects;
 
 /**

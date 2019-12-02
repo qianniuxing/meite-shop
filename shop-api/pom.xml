@@ -15,6 +15,7 @@
     <modules>
         <module>weChat</module>
         <module>member</module>
+        <module>pay</module>
     </modules>
 
     <dependencies>
