@@ -24,6 +24,12 @@
             <version>1.0-RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.meite</groupId>
+            <artifactId>unionPay</artifactId>
+            <version>1.0-RELEASE</version>
+        </dependency>
+
         <!--<dependency>
             <groupId>com.meite</groupId>
             <artifactId>elk-kafka</artifactId>
@@ -64,6 +70,39 @@
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-jpa</artifactId>
         </dependency>
+
+        <!-- 支付宝支付依赖 -->
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+            <version>3.7.110.ALL</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.projectlombok</groupId>-->
+<!--            <artifactId>lombok</artifactId>-->
+<!--            <version>1.16.16</version>-->
+<!--        </dependency>-->
+
+        <!-- 阿里云日志 -->
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>2.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun.openservices</groupId>
+            <artifactId>aliyun-log-logback-appender</artifactId>
+            <version>0.1.15</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>28.0-jre</version>
+        </dependency>
+
 
     </dependencies>
 

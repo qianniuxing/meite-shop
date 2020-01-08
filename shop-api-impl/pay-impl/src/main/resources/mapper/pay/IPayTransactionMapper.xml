@@ -13,5 +13,9 @@
         select * from payment_transaction where ID = #{id}
     </select>
 
+    <select id="paymentChannelByCloumn" resultType="java.util.Map">
+        select * from payment_channel where ID = #{id}
+    </select>
+
 
 </mapper>

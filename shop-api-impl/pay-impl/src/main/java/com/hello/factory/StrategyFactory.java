@@ -1,6 +1,6 @@
-package com.hello.api.pay.factory;
+package com.hello.factory;
 
-import com.hello.api.pay.strategy.IPayStrategy;
+import com.hello.strategy.pay.IPayStrategy;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
