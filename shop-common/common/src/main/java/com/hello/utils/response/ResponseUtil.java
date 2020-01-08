@@ -67,8 +67,8 @@ public class ResponseUtil {
      */
     public static JSONObject fail() {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("code", ResponseCode.EXCEPTION.getCode());
-        jsonObject.put("msg", ResponseCode.EXCEPTION.getMsg());
+        jsonObject.put("code", ResponseCode.FAIL.getCode());
+        jsonObject.put("msg", ResponseCode.FAIL.getMsg());
         return jsonObject;
     }
 
@@ -81,7 +81,7 @@ public class ResponseUtil {
      */
     public static JSONObject fail(String msg) {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("code", ResponseCode.EXCEPTION.getCode());
+        jsonObject.put("code", ResponseCode.FAIL.getCode());
         jsonObject.put("msg", msg);
         return jsonObject;
     }
@@ -96,7 +96,7 @@ public class ResponseUtil {
      */
     public static JSONObject fail(String msg, Object objData) {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("code", ResponseCode.EXCEPTION.getCode());
+        jsonObject.put("code", ResponseCode.FAIL.getCode());
         jsonObject.put("msg", msg);
         jsonObject.put("data", objData);
         return jsonObject;
