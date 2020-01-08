@@ -1,9 +1,17 @@
 package com.hello.utils.response;
 
+import com.hello.exception.ResponseCodeException;
+
+/**
+ * @Name ResponseCode
+ * @Description TODO 响应状态信息
+ * @Date 2020/1/7 10:58
+ * @Version 1.0.0
+ */
 public enum ResponseCode {
 
     // 成功
-    SUCCESS(1000, "成功！"),
+    SUCCESS(10000, "成功！"),
 
     // 失败
     FAIL(9400, "业务处理失败！"),
@@ -20,7 +28,7 @@ public enum ResponseCode {
      */
     private final int code;
     /**
-     * 响应提示
+     * 响应提示信息
      */
     private final String msg;
 
@@ -35,7 +43,13 @@ public enum ResponseCode {
         return msg;
     }
 
-    // 通过状态码获取响应信息
+    /**
+     * @description 通过状态码获取响应信息
+     * @date 2020/1/8 11:55
+     * @param code : 状态码
+     * @return com.hello.utils.response.ResponseCode
+     * @throws
+     */
     public static ResponseCode getResponseCode(int code) {
         for (ResponseCode r : values()) {
             if (r.code == code) {
@@ -45,12 +59,18 @@ public enum ResponseCode {
         return null;
     }
 
-    // 检查定义响应码是否重复？重复则抛出异常
-    public static Integer checkResponseCode(Integer code) {
+    /**
+     * @description 检查定义响应码是否是系统状态码？
+     * @date 2020/1/8 11:55
+     * @param code : 状态码
+     * @return java.lang.Integer
+     * @throws ResponseCodeException 如果状态码是系统状态码，则抛出异常
+     */
+    public static Integer checkResponseCode(Integer code) throws ResponseCodeException {
         for (ResponseCode r : values()) {
             if (r.code == code) {
                 // 重复响应码
-                throw new NumberFormatException();
+                throw new ResponseCodeException(code+ " is the current system response status code, not available（" +code+ "是当前系统响应状态码，不可使用）");
             }
         }
 //        // 检查自定义提示信息是否有重复
