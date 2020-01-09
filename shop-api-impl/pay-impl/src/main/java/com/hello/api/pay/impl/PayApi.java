@@ -78,9 +78,9 @@ public class PayApi implements IPayApi {
         if (payStrategy == null) {
             return ResponseUtil.lack("支付系统网关错误!");
         }
-        param.put("out_trade_no", "test202001081634");
-        param.put("total_amount", "100");
-        param.put("subject", "华为mata30 pro");
+//        param.put("out_trade_no", "test202001081634");
+//        param.put("total_amount", "100");
+//        param.put("subject", "华为mata30 pro");
         JSONObject result = payStrategy.pay(param);
         return result;
 
@@ -99,7 +99,7 @@ public class PayApi implements IPayApi {
     }
 
     @Override
-    public JSONObject payQuery(@RequestBody JSONObject param) {
+    public JSONObject query(@RequestBody JSONObject param) {
         param.put("CHANNEL_ID", "ali_pay");
         // 支付宝
         String classAddres = PayStrategyAddres.getClassAddres(param.getString("CHANNEL_ID"));
@@ -111,7 +111,7 @@ public class PayApi implements IPayApi {
                 e.printStackTrace();
             }
         }
-        param.put("out_trade_no", "test202001081634");
+//        param.put("out_trade_no", "test202001081634");
         JSONObject payQueryResult = payStrategy.query(param);
         return payQueryResult;
     }
@@ -129,9 +129,9 @@ public class PayApi implements IPayApi {
                 e.printStackTrace();
             }
         }
-        param.put("out_trade_no", "test20200106");
-        param.put("refund_amount", "300.00");
-        param.put("out_request_no", "requestNo20200106");
+//        param.put("out_trade_no", "test20200106");
+//        param.put("refund_amount", "300.00");
+//        param.put("out_request_no", "requestNo20200106");
         JSONObject refundResult = payStrategy.refund(param);
         return refundResult;
     }
@@ -152,6 +152,40 @@ public class PayApi implements IPayApi {
         param.put("out_trade_no", "test20200105");
         JSONObject refundResult = payStrategy.refundQuery(param);
         return refundResult;
+    }
+
+    @Override
+    public JSONObject create(@RequestBody JSONObject param) {
+        param.put("CHANNEL_ID", "ali_pay");
+        // 支付宝
+        String classAddres = PayStrategyAddres.getClassAddres(param.getString("CHANNEL_ID"));
+        IPayStrategy payStrategy = StrategyFactory.getPayStrategy(classAddres);
+        if (payStrategy == null) {
+            return ResponseUtil.lack("支付系统网关错误!");
+        }
+//        param.put("out_trade_no", "test202001081634");
+//        param.put("total_amount", "100");
+//        param.put("subject", "华为mata30 pro");
+        JSONObject result = payStrategy.create(param);
+        return result;
+    }
+
+    @Override
+    public JSONObject close(@RequestBody JSONObject param) {
+        param.put("CHANNEL_ID", "ali_pay");
+        // 支付宝
+        String classAddres = PayStrategyAddres.getClassAddres(param.getString("CHANNEL_ID"));
+        IPayStrategy payStrategy = StrategyFactory.getPayStrategy(classAddres);
+        if (payStrategy == null) {
+            try {
+                return ResponseUtil.customResponse(9005,"支付系统网关错误");
+            } catch (ResponseCodeException e) {
+                e.printStackTrace();
+            }
+        }
+//        param.put("out_trade_no", "test202001081634");
+        JSONObject payQueryResult = payStrategy.close(param);
+        return payQueryResult;
     }
 
 

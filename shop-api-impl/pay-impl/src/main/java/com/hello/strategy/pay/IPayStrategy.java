@@ -14,4 +14,8 @@ public interface IPayStrategy {
 
     JSONObject refundQuery(JSONObject param);
 
+    JSONObject create(JSONObject param);
+
+    JSONObject close(JSONObject param);
+
 }

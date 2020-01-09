@@ -14,7 +14,7 @@ import java.util.Objects;
 public class ResponseUtil {
 
     /**
-     * @description 业务处理成功
+     * @description 成功
      * @date 2020/1/8 11:34
      * @param
      * @return com.alibaba.fastjson.JSONObject
@@ -28,7 +28,7 @@ public class ResponseUtil {
     }
 
     /**
-     * @description 业务处理成功，响应携带数据
+     * @description 成功，响应携带数据
      * @date 2020/1/8 11:34
      * @param objData : 数据
      * @return com.alibaba.fastjson.JSONObject
@@ -43,7 +43,7 @@ public class ResponseUtil {
     }
 
     /**
-     * @description 业务处理成功，自定义提示信息，并携带数据（无数据传null）
+     * @description 成功，自定义提示信息，并携带数据（无数据传null）
      * @date 2020/1/8 11:39
      * @param msg : 提示信息
      * @param objData : 数据
@@ -59,7 +59,7 @@ public class ResponseUtil {
     }
 
     /**
-     * @description 业务处理失败
+     * @description 失败
      * @date 2020/1/8 11:40
      * @param
      * @return com.alibaba.fastjson.JSONObject
@@ -73,7 +73,7 @@ public class ResponseUtil {
     }
 
     /**
-     * @description 业务处理失败，自定义提示信息
+     * @description 失败，自定义提示信息
      * @date 2020/1/8 11:44
      * @param msg : 提示信息
      * @return com.alibaba.fastjson.JSONObject
@@ -87,7 +87,7 @@ public class ResponseUtil {
     }
 
     /**
-     * @description 业务处理失败，自定义提示信息，并携带数据
+     * @description 失败，自定义提示信息，并携带数据
      * @date 2020/1/8 11:42
      * @param msg : 提示信息
      * @param objData : 数据
@@ -175,6 +175,25 @@ public class ResponseUtil {
         jsonObject.put("data", objData);
         return jsonObject;
     }
+
+    /**
+     * @description 系统定义的响应信息ResponseCode，自定义提示信息，并携带数据
+     * @date 2020/1/9 15:31
+     * @param responseCode : 响应信息
+     * @param msg : 自定义提示信息
+     * @param objData : 数据
+     * @return com.alibaba.fastjson.JSONObject
+     * @throws
+     */
+    public static JSONObject systemResponse(ResponseCode responseCode,String msg, Object objData) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("code", responseCode.getCode());
+        jsonObject.put("msg", msg);
+        jsonObject.put("data", objData);
+        return jsonObject;
+    }
+
+
 
     /**
      * @description 自定义状态码与提示信息

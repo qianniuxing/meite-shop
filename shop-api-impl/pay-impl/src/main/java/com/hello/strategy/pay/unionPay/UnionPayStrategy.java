@@ -187,4 +187,14 @@ public class UnionPayStrategy implements IPayStrategy {
     public JSONObject refundQuery(JSONObject param) {
         return null;
     }
+
+    @Override
+    public JSONObject create(JSONObject param) {
+        return null;
+    }
+
+    @Override
+    public JSONObject close(JSONObject param) {
+        return null;
+    }
 }

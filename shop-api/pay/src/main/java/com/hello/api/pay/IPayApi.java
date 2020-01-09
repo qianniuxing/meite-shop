@@ -8,19 +8,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/pay")
 public interface IPayApi {
 
-    @GetMapping("/toPayHtml")
+    @PostMapping("/toPayHtml")
     JSONObject toPayHtml(JSONObject param);
 
     @PostMapping("/toPayHtmlTest")
     JSONObject toPayHtmlTest(JSONObject param);
 
-    @GetMapping("/payQuery")
-    JSONObject payQuery(JSONObject param);
+    @PostMapping("/query")
+    JSONObject query(JSONObject param);
 
     @GetMapping("/refund")
     JSONObject refund(JSONObject param);
 
-    @GetMapping("/refundQuery")
+    @PostMapping("/refundQuery")
     JSONObject refundQuery(JSONObject param);
+
+    @PostMapping("/create")
+    JSONObject create(JSONObject param);
+
+    @PostMapping("/close")
+    JSONObject close(JSONObject param);
 
 }
