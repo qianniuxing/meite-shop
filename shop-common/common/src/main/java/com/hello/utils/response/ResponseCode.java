@@ -12,14 +12,10 @@ public enum ResponseCode {
 
     // 成功
     SUCCESS(10000, "成功！"),
-    // 系统繁忙
-    BUSY(10001, "系统繁忙！"),
-    // 请刷新重试
-    RETRY(10003, "请刷新重试！"),
     // 失败
     FAIL(10004, "失败！"),
-    // 异常
-    EXCEPTION(10005, "异常！"),
+    // 请刷新重试
+    RETRY(10005, "请刷新重试！"),
     // 参数缺失
     LACK(10007, "参数缺失！"),
     ;
@@ -74,13 +70,6 @@ public enum ResponseCode {
                 throw new ResponseCodeException(code+ " is the current system response status code, not available（" +code+ "是当前系统响应状态码，不可使用）");
             }
         }
-//        // 检查自定义提示信息是否有重复
-//        for (CustomMsg c : CustomMsg.values()) {
-//            if (c.code == code) {
-//                // 重复响应码
-//                throw new NumberFormatException();
-//            }
-//        }
         return code;
     }
 

@@ -3,14 +3,11 @@ package com.hello.api.pay.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.hello.api.pay.IPayApi;
 import com.hello.api.pay.IPayMentTransacApi;
-import com.hello.exception.ResponseCodeException;
 import com.hello.factory.StrategyFactory;
 import com.hello.mapper.pay.IPayTransactionMapper;
 import com.hello.strategy.pay.IPayStrategy;
 import com.hello.strategy.pay.PayStrategyAddres;
 import com.hello.utils.response.ResponseUtil;
-import com.hello.utils.LogUtil;
-import com.hello.utils.response.ResponseCode;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,30 +34,18 @@ public class PayApi implements IPayApi {
         Map resultMap = new HashMap();
         Map channel = this.payTransactionMapper.paymentChannelByCloumn(param);
         if (channel == null) {
-            try {
-                return ResponseUtil.customResponse(9004,"没有查询到该渠道信息");
-            } catch (ResponseCodeException e) {
-                e.printStackTrace();
-            }
+            return ResponseUtil.customResponse(9004,"没有查询到该渠道信息");
         }
         // 2.使用payToken查询待支付信息
         Map transac = payMentTransacApi.tokenByPayMentTransac(param);
         if (!"200".equals(transac.get("code").toString())) {
-            try {
-                return ResponseUtil.customResponse(9004,"没有查询到支付信息");
-            } catch (ResponseCodeException e) {
-                e.printStackTrace();
-            }
+            return ResponseUtil.customResponse(9004,"没有查询到支付信息");
         }
         // 3.使用Java反射机制初始化子类
         String classAddres = (String) channel.get("CLASS_ADDRES");
         IPayStrategy payStrategy = StrategyFactory.getPayStrategy(classAddres);
         if (payStrategy == null) {
-            try {
-                return ResponseUtil.customResponse(9005,"支付系统网关错误");
-            } catch (ResponseCodeException e) {
-                e.printStackTrace();
-            }
+            return ResponseUtil.customResponse(9005,"支付系统网关错误");
         }
         // 4.直接执行子类实现方法
         param.put("MERCHANT_ID", channel.get("MERCHANT_ID"));
@@ -76,7 +61,7 @@ public class PayApi implements IPayApi {
         String classAddres = PayStrategyAddres.getClassAddres(param.getString("CHANNEL_ID"));
         IPayStrategy payStrategy = StrategyFactory.getPayStrategy(classAddres);
         if (payStrategy == null) {
-            return ResponseUtil.lack("支付系统网关错误!");
+            return ResponseUtil.fail("支付系统网关错误!");
         }
 //        param.put("out_trade_no", "test202001081634");
 //        param.put("total_amount", "100");
@@ -105,11 +90,7 @@ public class PayApi implements IPayApi {
         String classAddres = PayStrategyAddres.getClassAddres(param.getString("CHANNEL_ID"));
         IPayStrategy payStrategy = StrategyFactory.getPayStrategy(classAddres);
         if (payStrategy == null) {
-            try {
-                return ResponseUtil.customResponse(9005,"支付系统网关错误");
-            } catch (ResponseCodeException e) {
-                e.printStackTrace();
-            }
+            return ResponseUtil.customResponse(9005,"支付系统网关错误");
         }
 //        param.put("out_trade_no", "test202001081634");
         JSONObject payQueryResult = payStrategy.query(param);
@@ -123,11 +104,7 @@ public class PayApi implements IPayApi {
         String classAddres = PayStrategyAddres.getClassAddres(param.getString("CHANNEL_ID"));
         IPayStrategy payStrategy = StrategyFactory.getPayStrategy(classAddres);
         if (payStrategy == null) {
-            try {
-                return ResponseUtil.customResponse(9005,"支付系统网关错误");
-            } catch (ResponseCodeException e) {
-                e.printStackTrace();
-            }
+            return ResponseUtil.customResponse(9005,"支付系统网关错误");
         }
 //        param.put("out_trade_no", "test20200106");
 //        param.put("refund_amount", "300.00");
@@ -143,11 +120,7 @@ public class PayApi implements IPayApi {
         String classAddres = PayStrategyAddres.getClassAddres(param.getString("CHANNEL_ID"));
         IPayStrategy payStrategy = StrategyFactory.getPayStrategy(classAddres);
         if (payStrategy == null) {
-            try {
-                return ResponseUtil.customResponse(9005,"支付系统网关错误");
-            } catch (ResponseCodeException e) {
-                e.printStackTrace();
-            }
+            return ResponseUtil.customResponse(9005,"支付系统网关错误");
         }
         param.put("out_trade_no", "test20200105");
         JSONObject refundResult = payStrategy.refundQuery(param);
@@ -161,7 +134,7 @@ public class PayApi implements IPayApi {
         String classAddres = PayStrategyAddres.getClassAddres(param.getString("CHANNEL_ID"));
         IPayStrategy payStrategy = StrategyFactory.getPayStrategy(classAddres);
         if (payStrategy == null) {
-            return ResponseUtil.lack("支付系统网关错误!");
+            return ResponseUtil.fail("支付系统网关错误!");
         }
 //        param.put("out_trade_no", "test202001081634");
 //        param.put("total_amount", "100");
@@ -177,11 +150,7 @@ public class PayApi implements IPayApi {
         String classAddres = PayStrategyAddres.getClassAddres(param.getString("CHANNEL_ID"));
         IPayStrategy payStrategy = StrategyFactory.getPayStrategy(classAddres);
         if (payStrategy == null) {
-            try {
-                return ResponseUtil.customResponse(9005,"支付系统网关错误");
-            } catch (ResponseCodeException e) {
-                e.printStackTrace();
-            }
+            return ResponseUtil.customResponse(9005,"支付系统网关错误");
         }
 //        param.put("out_trade_no", "test202001081634");
         JSONObject payQueryResult = payStrategy.close(param);
